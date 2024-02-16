@@ -85,7 +85,7 @@
   function HeroSection() {
     return (
       <section className="hero">
-        <div><h2>Welcome to our Library</h2></div>
+        <div style={{ padding: '10px', border: '1px solid #ccc' }}><h2>Welcome to our Library</h2></div>
       </section>
     );
   }
@@ -109,7 +109,7 @@ const CategoryComponent = () => {
       ));
 
       return (
-        <div>
+        <div style={{ padding: '10px', border: '1px solid #ccc' }}>
           {categories}
         </div>
       );
@@ -131,7 +131,7 @@ function LandingPage() {
       return (
         <div>
       <Header />
-      <div style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}>
+      <div style={{ display: 'flex' }}>
       <CategoryComponent />
       <HeroSection />
       </div>
