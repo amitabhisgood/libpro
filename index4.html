@@ -105,7 +105,7 @@
 const CategoryComponent = () => {
       // Render "Category" nine times
       const categories = Array.from({ length: 9 }, (_, index) => (
-        <div key={index}>Category</div>
+        <div key={index} style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}>Category</div>
       ));
 
       return (
