@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acite Creatives Library Management System</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Include compiled React component -->
+  <script type="text/babel">
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+/*
+  function Header() {
+    return (
+      <div>
+      <header>
+        <h1>Library Management System</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      </div>
+    );
+  }
+  //https://ppld.org/
+  // https://leverageedu.com/blog/free-online-libraries/
+*/
+  function Header() {
+    return (
+      <div>
+      <header>
+        <h1>Library Management System</h1>
+      </header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/">About</a>
+        <a href="/">Books</a>
+        <a href="/">Images</a>
+        <a href="/">Videos</a>
+        <a href="/">Search</a>
+        <a href="/">Programs</a>
+        <a href="/">Classes</a>
+        <a href="/">My Account</a>
+        <a href="/">Services</a>
+        <a href="/">Support</a>
+        <a href="/">Contact</a>
+      </nav>
+      </div>
+    );
+  }
+    
+  function HeroSection() {
+    return (
+      <section className="hero">
+        <div align="center"><h2>Welcome to our Library</h2></div>
+      </section>
+    );
+  }
+  
+  function FeaturesSection() {
+    return (
+      <section className="features">
+        <h2>Key Features</h2>
+        <ul>
+          <li>Search and browse books</li>
+          <li>Manage borrowing and returns</li>
+          <li>Track reading history</li>
+        </ul>
+      </section>
+    );
+  }
+
+// Additional sections and components
+/*
+function LandingPage() {
+  return (
+    <div className="landing-page">
+      <Header />
+      <HeroSection />
+      <FeaturesSection />
+    </div>
+  );
+}
+*/    
+    function LandingPage() {
+      return (
+        <div>
+      <Header />
+      <HeroSection />
+        </div>
+      );
+    }
+
+    // Render React component to the 'root' div
+/*    
+    ReactDOM.render(
+      React.createElement(<LandingPage />, null), 
+      document.getElementById('root')
+    );
+*/    
+    
+    ReactDOM.render(<LandingPage />, document.getElementById('root')
+    );
+    
+  </script>
+</body>
+</html>
