@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  <style>
     /* Add some basic styling for the header and menu */
     header {
-      background-color: grey; //white; //#228B22; //#008080; //lightblue; //white;
+      background-color: white;
       color: #333;
       padding: 10px;
       text-align: center;
@@ -20,7 +20,7 @@
     nav {
       display: flex;
       justify-content: space-around;
-      background-color: #333; //white; //grey; //#444;
+      background-color: #333; 
       padding: 10px;
     }
 
@@ -92,9 +92,11 @@ export default LandingPage;
   </script>
   <script type="text/javascript">
     // Render React component to the 'root' div
-    ReactDOM.render(
+    /*ReactDOM.render(
       <LandingPage />, document.getElementById('root')
-    );
+    );*/
+    ReactDOM.render(
+      React.createElement(LandingPage,null), document.getElementById('root'));
   </script>
 </body>
 </html>
