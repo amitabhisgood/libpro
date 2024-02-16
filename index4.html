@@ -85,7 +85,7 @@
   function HeroSection() {
     return (
       <section className="hero">
-        <div style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }} ><h2>Welcome to our Library</h2></div>
+        <div><h2>Welcome to our Library</h2></div>
       </section>
     );
   }
@@ -105,11 +105,11 @@
 const CategoryComponent = () => {
       // Render "Category" nine times
       const categories = Array.from({ length: 9 }, (_, index) => (
-        <div key={index} style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}>Category</div>
+        <div key={index}>Category</div>
       ));
 
       return (
-        <div style={{ flex: 1, padding: '10px', border: '1px solid #ccc' }}>
+        <div>
           {categories}
         </div>
       );
