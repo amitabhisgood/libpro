@@ -121,7 +121,6 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <Header />
-      <CategoryComponent />
       <HeroSection />
       <FeaturesSection />
     </div>
@@ -132,19 +131,13 @@ function LandingPage() {
       return (
         <div>
       <Header />
+      <CategoryComponent />
       <HeroSection />
         </div>
       );
     }
 
     // Render React component to the 'root' div
-/*    
-    ReactDOM.render(
-      React.createElement(<LandingPage />, null), 
-      document.getElementById('root')
-    );
-*/    
-    
     ReactDOM.render(<LandingPage />, document.getElementById('root')
     );
     
