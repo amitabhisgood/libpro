@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline React Menu Example</title>
+  <!-- Include Babel for JSX transformation -->
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <!-- Include React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+
+  <!-- Container element for React rendering -->
+  <div id="app"></div>
+
+  <script type="text/babel">
+    // React component for the menu
+    const HorizontalMenu = () => {
+      return (
+        <nav>
+          <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
+            <li style={{ margin: '0 10px' }}><a href="/home">Home</a></li>
+            <li style={{ margin: '0 10px' }}><a href="/about">About</a></li>
+            <li style={{ margin: '0 10px' }} className="with-submenu">
+              <a href="/services">Services</a>
+              <ul className="submenu" style={{ listStyle: 'none', padding: 0, display: 'none' }}>
+                <li style={{ margin: '0 10px' }}><a href="/me">Me</a></li>
+                <li style={{ margin: '0 10px' }}><a href="/you">You</a></li>
+              </ul>
+            </li>
+            <li style={{ margin: '0 10px' }}><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      );
+    };
+
+    // Render the component inside the specified HTML element
+    ReactDOM.render(
+      React.createElement(HorizontalMenu),
+      document.getElementById('app')
+    );
+  </script>
+
+  <script>
+    // Script to handle dropdown menu visibility
+    document.addEventListener('DOMContentLoaded', function () {
+      const withSubmenu = document.querySelector('.with-submenu');
+      const submenu = document.querySelector('.submenu');
+
+      withSubmenu.addEventListener('mouseenter', function () {
+        submenu.style.display = 'block';
+      });
+
+      withSubmenu.addEventListener('mouseleave', function () {
+        submenu.style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
