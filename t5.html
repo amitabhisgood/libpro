@@ -117,8 +117,12 @@
     function FCenterComponent() {
       return (
         <div style={{ display: 'flex' }}>
-          <LeftComponent />
-          <CenterComponent />
+          <div style={{border: '3px solid #ccc'}}>
+            <LeftComponent />
+          </div>
+          <div>
+            <CenterComponent />
+          </div>
         </div>
       );
     }
