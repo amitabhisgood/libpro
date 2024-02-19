@@ -91,30 +91,31 @@
   <div id="root"></div>
   <script type="text/babel">
     function Header() {
+      loginClicked => 
       return (
         <div>
           <header>
             <h1>Library Management System</h1>
           </header>
           <nav>
-            <a href="/">Home</a>
-            <a href="/">About</a>
-            <a href="/">Books</a>
-            <a href="/">Images</a>
-            <a href="/">Videos</a>
-            <a href="/">Search</a>
-            <a href="/">Programs</a>
-            <a href="/">Classes</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Books</a>
+            <a href="#">Images</a>
+            <a href="#">Videos</a>
+            <a href="#">Search</a>
+            <a href="#">Programs</a>
+            <a href="#">Classes</a>
             <span className="submenu-container">
-              <a href="/" className="menu-item">My Account</a>
+              <a href="#" className="menu-item">My Account</a>
               <ul className="submenu">
-                <li>Login</li>
+                <li onClick={loginClicked}>Login</li>
                 {/* Add more items as needed */}
               </ul>
             </span>
-            <a href="/">Services</a>
-            <a href="/">Support</a>
-            <a href="/">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">Support</a>
+            <a href="#">Contact</a>
           </nav>
         </div>
       );
