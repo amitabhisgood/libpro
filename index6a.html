@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <!-- Include Babel for JSX transformation -->
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <!-- Include React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+
+  <!-- Container element for React rendering -->
+  <div id="app"></div>
+
+  <script type="text/babel">
+    function Header() {
+      return (
+        <div>
+          <header>
+            <h1>Library Management System</h1>
+          </header>
+          <nav>
+            <a href="/libpro/index4.html">Home</a>
+            <a href="/libpro/index4.html">About</a>
+            <a href="/libpro/index4.html">Books</a>
+            <a href="/libpro/index4.html">Images</a>
+            <a href="/libpro/index4.html">Videos</a>
+            <a href="/libpro/index4.html">Search</a>
+            <a href="/libpro/index4.html">Programs</a>
+            <a href="/libpro/index4.html">Classes</a>
+            <div className="with-submenu">
+              <a href="/libpro/index4.html">My Account</a>
+              <div className="submenu">
+                <a href="/libpro/me.html">Me</a>
+                <a href="/libpro/you.html">You</a>
+              </div>
+            </div>
+            <a href="/libpro/index4.html">Services</a>
+            <a href="/libpro/index4.html">Newsletter</a>        
+            <a href="/libpro/index4.html">Support</a>
+            <a href="/libpro/index4.html">Contact</a>
+          </nav>
+        </div>
+      );
+    }
+
+    // Render the component inside the specified HTML element
+    ReactDOM.render(
+      React.createElement(Header),
+      document.getElementById('app')
+    );
+  </script>
+
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      padding: 8px;
+    }
+
+    .with-submenu:hover .submenu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .submenu a {
+      padding: 8px;
+    }
+  </style>
+
+</body>
+</html>
