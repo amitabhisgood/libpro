@@ -3,45 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inline React Menu Example</title>
-<!-- Include Babel for JSX transformation -->
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-<!-- Include React and ReactDOM from CDN -->
-  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <title>Acite Creatives Library Management System</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Container element for React rendering -->
-  <div id="app"></div>
-
+  <div id="root"></div>
+  <!-- Include compiled React component -->
   <script type="text/babel">
-    // React component for the menu
-    const HorizontalMenu = () => {
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+/*
+  function Header() {
+    return (
+      <div>
+      <header>
+        <h1>Library Management System</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      </div>
+    );
+  }
+  //https://ppld.org/
+  // https://leverageedu.com/blog/free-online-libraries/
+*/
+  function Header() {
+    return (
+      <div>
+      <header>
+        <h1>Library Management System</h1>
+      </header>
+      <nav>
+        <a href="/libpro/index4.html">Home</a>
+        <a href="/libpro/index4.html">About</a>
+        <a href="/libpro/index4.html">Books</a>
+        <a href="/libpro/index4.html">Images</a>
+        <a href="/libpro/index4.html">Videos</a>
+        <a href="/libpro/index4.html">Search</a>
+        <a href="/libpro/index4.html">Programs</a>
+        <a href="/libpro/index4.html">Classes</a>
+        <a href="/libpro/index4.html">My Account</a>
+        <a href="/libpro/index4.html">Services</a>
+        <a href="/libpro/index4.html">Newsletter</a>        
+        <a href="/libpro/index4.html">Support</a>
+        <a href="/libpro/index4.html">Contact</a>
+      </nav>
+      </div>
+    );
+  }
+    
+  function HeroSection() {
+    return (
+      <section className="hero">
+        <div style={{flex: '0 0 70%', width: '70vw', height: '100vh',padding: '10px', border: '3px solid #ccc' }}>
+          <div style={{flex: '1', align:'center', padding: '10px', border: '3px solid #ccc' }}><p align='center'>
+            <h2>Welcome to our Library</h2></p></div>
+        </div>
+      </section>
+    );
+  }
+  
+  function FeaturesSection() {
+    return (
+      <section className="features">
+        <h2>Key Features</h2>
+        <ul>
+          <li>Search and browse books</li>
+          <li>Manage borrowing and returns</li>
+          <li>Track reading history</li>
+        </ul>
+      </section>
+    );
+  }
+const CategoryComponent = () => {
+      // Render "Category" nine times
+      const categories = Array.from({ length: 9 }, (_, index) => (
+        <div key={index}>Category</div>
+      ));
+
       return (
-        <nav>
-          <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
-            <li style={{ margin: '0 10px' }}><a href="/home">Home</a></li>
-            <li style={{ margin: '0 10px' }}><a href="/about">About</a></li>
-            <li style={{ margin: '0 10px' }}>
-              <a href="/services">Services</a>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'none' }}>
-                <li style={{ margin: '0 10px' }}><a href="/me">Me</a></li>
-                <li style={{ margin: '0 10px' }}><a href="/you">You</a></li>
-              </ul>
-            </li>
-            <li style={{ margin: '0 10px' }}><a href="/contact">Contact</a></li>
-          </ul>
-        </nav>
+        <div style={{flex: '0 0 20%', padding: '10px', border: '1px solid #ccc' }}>
+          {categories}
+        </div>
       );
     };
+    
+// Additional sections and components
+/*
+function LandingPage() {
+  return (
+    <div className="landing-page">
+      <Header />
+      <HeroSection />
+      <FeaturesSection />
+    </div>
+  );
+}
+*/    
+    function LandingPage() {
+      return (
+        <div>
+      <Header />
+      <div style={{ display: 'flex', height: '100vh', width: '100vw' }}>
+      <CategoryComponent />
+      <HeroSection />
+      </div>
+        </div>
+      );
+    }
 
-    // Render the component inside the specified HTML element
-    ReactDOM.render(
-      React.createElement(HorizontalMenu),
-      document.getElementById('app')
+    // Render React component to the 'root' div
+    ReactDOM.render(<LandingPage />, document.getElementById('root')
     );
+    
   </script>
-
 </body>
 </html>
