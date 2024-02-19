@@ -98,7 +98,7 @@
 
     function CenterComponent() {
       return (
-        <div className="center-component">
+        <div>
           <div>
             <HeroSection />
           </div>
@@ -114,7 +114,7 @@
       const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
       return (
-        <div className="left-component">
+        <div>
           <ul>
             {items.map((item, index) => (
               <li key={index}>{item}</li>
@@ -127,8 +127,12 @@
     function FCenterComponent() {
       return (
         <div className="f-center-component">
-          <LeftComponent />
-          <CenterComponent />
+          <div  className="left-component">
+            <LeftComponent />
+          </div>
+          <div  className="center-component">
+            <CenterComponent />
+          </div>
         </div>
       );
     }
