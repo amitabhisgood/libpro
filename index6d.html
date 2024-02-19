@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acite Creatives Library Management System</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      padding: 8px;
+    }
+
+    .with-submenu:hover .submenu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .submenu a {
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Include compiled React component -->
+  <script type="text/babel">
+    function Header() {
+      return (
+        <div>
+          <header>
+            <h1>Library Management System</h1>
+          </header>
+          <nav>
+            <a href="/libpro/index4.html">Home</a>
+            <a href="/libpro/index4.html">About</a>
+            <a href="/libpro/index4.html">Books</a>
+            <a href="/libpro/index4.html">Images</a>
+            <a href="/libpro/index4.html">Videos</a>
+            <a href="/libpro/index4.html">Search</a>
+            <a href="/libpro/index4.html">Programs</a>
+            <a href="/libpro/index4.html">Classes</a>
+            <ul className="with-submenu">
+              <li><a href="/libpro/index4.html">My Account</a>
+                <ul className="submenu">
+                  <li><a href="/libpro/me.html">Me</a></li>
+                  <li><a href="/libpro/you.html">You</a></li>
+                  <li><a href="/libpro/login.html">Login</a></li> {/* Added Login menu item */}
+                </ul>
+              </li>
+            </ul>
+            <a href="/libpro/index4.html">Services</a>
+            <a href="/libpro/index4.html">Newsletter</a>        
+            <a href="/libpro/index4.html">Support</a>
+            <a href="/libpro/index4.html">Contact</a>
+          </nav>
+        </div>
+      );
+    }
+
+  function HeroSection() {
+    return (
+      <section className="hero">
+        <div style={{flex: '0 0 70%', width: '70vw', height: '100vh',padding: '10px', border: '3px solid #ccc' }}>
+          <div style={{flex: '1', align:'center', padding: '10px', border: '3px solid #ccc' }}><p align='center'>
+            <h2>Welcome to our Library</h2></p></div>
+        </div>
+      </section>
+    );
+  }
+  
+  function FeaturesSection() {
+    return (
+      <section className="features">
+        <h2>Key Features</h2>
+        <ul>
+          <li>Search and browse books</li>
+          <li>Manage borrowing and returns</li>
+          <li>Track reading history</li>
+        </ul>
+      </section>
+    );
+  }
+const CategoryComponent = () => {
+      // Render "Category" nine times
+      const categories = Array.from({ length: 9 }, (_, index) => (
+        <div key={index}>Category</div>
+      ));
+
+      return (
+        <div style={{flex: '0 0 20%', padding: '10px', border: '1px solid #ccc' }}>
+          {categories}
+        </div>
+      );
+    };
+    
+// Additional sections and components
+    function LandingPage() {
+      return (
+        <div>
+      <Header />
+      <div style={{ display: 'flex', height: '100vh', width: '100vw' }}>
+      <CategoryComponent />
+      <HeroSection />
+      </div>
+        </div>
+      );
+    }
+
+
+    // Render React component to the 'root' div
+    ReactDOM.render(<LandingPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>
