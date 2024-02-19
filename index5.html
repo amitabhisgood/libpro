@@ -43,6 +43,15 @@
   // https://leverageedu.com/blog/free-online-libraries/
 */
   function Header() {
+    const [isLoginVisible, setLoginVisible] = useState(false);
+    
+      const handleMouseEnter = () => {
+        setLoginVisible(true);
+      };
+    
+      const handleMouseLeave = () => {
+        setLoginVisible(false);
+      };
     return (
       <div>
       <header>
