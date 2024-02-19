@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Submenu Example</title>
+  <!-- Include Babel for JSX transformation -->
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <!-- Include React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+
+  <!-- Container element for React rendering -->
+  <div id="app"></div>
+
+  <script type="text/babel">
+    // React component for the menu
+    const MenuWithSubmenu = () => {
+      return (
+        <nav>
+          <ul className="menu">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li className="with-submenu">
+              <a href="/services">Services</a>
+              <ul className="submenu">
+                <li><a href="/me">Me</a></li>
+                <li><a href="/you">You</a></li>
+              </ul>
+            </li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      );
+    };
+
+    // Render the component inside the specified HTML element
+    ReactDOM.render(
+      React.createElement(MenuWithSubmenu),
+      document.getElementById('app')
+    );
+  </script>
+
+  <style>
+    /* Basic styling for the menu */
+    .menu {
+      list-style: none;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu li {
+      margin-right: 20px;
+    }
+
+    /* Styling for the submenu */
+    .submenu {
+      list-style: none;
+      padding: 0;
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .submenu li {
+      padding: 10px;
+    }
+
+    /* Show submenu on hover */
+    .with-submenu:hover .submenu {
+      display: block;
+    }
+  </style>
+
+</body>
+</html>
