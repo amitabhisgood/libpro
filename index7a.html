@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .login-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
+
+    .login-form h2 {
+      text-align: center;
+    }
+
+    .login-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-form label {
+      margin-bottom: 10px;
+    }
+
+    .login-form input {
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    .login-form button {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Include compiled React component -->
+  <script type="text/babel">
+    function LoginForm({ onClose }) {
+      const [username, setUsername] = React.useState('');
+      const [password, setPassword] = React.useState('');
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Username:', username);
+        console.log('Password:', password);
+        onClose();
+      };
+
+      return (
+        <div className="login-form">
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Username:
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            </label>
+            <label>
+              Password:
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      );
+    }
+
+    function Header() {
+      const [showLoginForm, setShowLoginForm] = React.useState(false);
+
+      const toggleLoginForm = () => {
+        setShowLoginForm(!showLoginForm);
+      };
+
+      return (
+        <div>
+          <header>
+            <h1>Library Management System</h1>
+          </header>
+          <nav>
+            <a onClick={toggleLoginForm}>My Account</a>
+          </nav>
+
+          {showLoginForm && <LoginForm onClose={toggleLoginForm} />}
+        </div>
+      );
+    }
+
+    ReactDOM.render(<Header />, document.getElementById('root'));
+  </script>
+</body>
+</html>
