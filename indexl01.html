@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Add Axios for HTTP requests -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Include compiled React component -->
+  <script type="text/babel">
+    function Login() {
+      const [username, setUsername] = React.useState('');
+      const [password, setPassword] = React.useState('');
+
+      const handleLogin = async () => {
+        try {
+          const response = await axios.post('http://your-backend-server.com/login', {
+            username,
+            password,
+          });
+
+          console.log(response.data); // Handle the response as needed
+        } catch (error) {
+          console.error('Error during login:', error);
+        }
+      };
+
+      return (
+        <div>
+          <h1>Login Page</h1>
+          <div>
+            <label>Username:</label>
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      );
+    }
+
+    // Render React component to the 'root' div    
+    ReactDOM.render(<Login />, document.getElementById('root'));
+  </script>
+</body>
+</html>
