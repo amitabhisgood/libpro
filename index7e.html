@@ -87,23 +87,7 @@
         onClose();
       };
 
-      const handleLogin = (e) => {
-        // Make an Axios request for authentication
-        console.log('Using Axios');
-        console.log('Username:', username);
-        console.log('Password:', password);
-        axios.post('https://b2d9-2401-4900-1f26-1-2089-1afa-735-f1d2.ngrok-free.app/login ', {
-          username: username,
-          password: password
-        })
-        .then(response => {
-          // Handle successful authentication
-          console.log('Authentication successful:', response.data);
-        })
-        .catch(error => {
-          // Handle authentication error
-          console.error('Authentication error:', error.message);
-        });      
+     
       return (
         <div className="login-form">
           <h2>Login</h2>
