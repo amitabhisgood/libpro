@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submenu Example</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body {
+      margin: 0; /* Remove default body margin */
+    }
+
+    nav {
+      display: flex;
+      justify-content: center; /* Center the content horizontally */
+      align-items: center; /* Center the content vertically */
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+      position: relative;
+    }
+
+    .submenu-container {
+      position: relative;
+    }
+
+    .submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background-color: #333;
+      padding: 10px;
+      list-style-type: none;
+      margin: 0; /* Remove default margin */
+    }
+
+    .submenu-container:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function Submenu() {
+      return (
+        <nav>
+          <a href="/">Home</a>
+          <a href="/">About</a>
+          <span className="submenu-container">
+            <a href="/" className="menu-item">Services</a>
+            <ul className="submenu">
+              <li>Service 1</li>
+              <li>Service 2</li>
+              <li>Service 3</li>
+            </ul>
+          </span>
+          <a href="/">Contact</a>
+        </nav>
+      );
+    }
+
+    ReactDOM.render(<Submenu />, document.getElementById('root'));
+  </script>
+</body>
+</html>
