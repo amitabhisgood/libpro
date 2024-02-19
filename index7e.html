@@ -87,7 +87,7 @@
         onClose();
       };
 
-      const handleLogin = () => {
+      const handleLogin = (e) => {
         // Make an Axios request for authentication
         console.log('Using Axios');
         console.log('Username:', username);
@@ -107,7 +107,7 @@
       return (
         <div className="login-form">
           <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLogin}>
             <label>
               Username:
               <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
