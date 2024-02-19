@@ -68,44 +68,19 @@
     );
   }
   
-  function FeaturesSection() {
+  function LandingPage() {
     return (
-      <section className="features">
-        <h2>Key Features</h2>
-        <ul>
-          <li>Search and browse books</li>
-          <li>Manage borrowing and returns</li>
-          <li>Track reading history</li>
-        </ul>
-      </section>
+      <div>
+    <Header />
+    <HeroSection />
+      </div>
     );
   }
 
-// Additional sections and components
-/*
-function LandingPage() {
-  return (
-    <div className="landing-page">
-      <Header />
-      <HeroSection />
-      <FeaturesSection />
-    </div>
+  // Render React component to the 'root' div
+ 
+  ReactDOM.render(<LandingPage />, document.getElementById('root')
   );
-}
-*/    
-    function LandingPage() {
-      return (
-        <div>
-      <Header />
-      <HeroSection />
-        </div>
-      );
-    }
-
-    // Render React component to the 'root' div
-   
-    ReactDOM.render(<LandingPage />, document.getElementById('root')
-    );
     
   </script>
 </body>
