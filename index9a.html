@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline React Example</title>
+  <!-- Add React library -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Add Babel for JSX compilation -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    /* Inline CSS for styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .item {
+      border: 1px solid #ccc;
+      margin: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- Include compiled React component -->
+  <script type="text/babel">
+    // Inline React.js code
+    function ItemList() {
+      const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+
+      return (
+        <ul className="item-list">
+          {items.map((item, index) => (
+            <li key={index} className="item">
+              {item}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    // Render React component to the 'root' div
+    ReactDOM.render(<ItemList />, document.getElementById('root'));
+  </script>
+</body>
+
+</html>
