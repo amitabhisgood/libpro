@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline React Menu Example</title>
+  <!-- Include React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+
+  <!-- Container element for React rendering -->
+  <div id="app"></div>
+
+  <script>
+    // React component for the menu
+    const HorizontalMenu = () => {
+      return (
+        <nav>
+          <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
+            <li style={{ margin: '0 10px' }}><a href="/home">Home</a></li>
+            <li style={{ margin: '0 10px' }}><a href="/about">About</a></li>
+            <li style={{ margin: '0 10px' }}>
+              <a href="/services">Services</a>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'none' }}>
+                <li style={{ margin: '0 10px' }}><a href="/me">Me</a></li>
+                <li style={{ margin: '0 10px' }}><a href="/you">You</a></li>
+              </ul>
+            </li>
+            <li style={{ margin: '0 10px' }}><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      );
+    };
+
+    // Render the component inside the specified HTML element
+    ReactDOM.render(
+      React.createElement(HorizontalMenu),
+      document.getElementById('app')
+    );
+  </script>
+
+</body>
+</html>
