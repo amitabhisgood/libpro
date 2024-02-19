@@ -193,7 +193,7 @@
             <div className="with-submenu">
               <a href="/libpro/index4.html">My Account</a>
               <ul className="submenu">
-                <li onClick={toggleLoginForm}><a>Login</a></li>
+                <li><a onClick={toggleLoginForm}>Login</a></li>
               </ul>
             </div>
             <div className="with-submenu">
@@ -222,7 +222,17 @@
             <a href="/libpro/index4.html">Contact</a>
           </nav>
 
-          {showLoginForm && <LoginForm onClose={toggleLoginForm} />}
+          {showLoginForm && (
+            <form className="login-form">
+              <label htmlFor="username">Username:</label>
+              <input type="text" id="username" name="username" />
+
+              <label htmlFor="password">Password:</label>
+              <input type="password" id="password" name="password" />
+
+              <button type="button" onClick={toggleLoginForm}>Login</button>
+            </form>
+          )}
         </div>
       );
     }
