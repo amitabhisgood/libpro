@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './header';
-import FCenterComponent from './fCenterComponent';
+import Header from './Header';
+import FCenterComponent from './FCenterComponent';
 
 function LandingPage() {
   return (
