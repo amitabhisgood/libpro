@@ -96,6 +96,25 @@
     function Header() {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
+      const [showRegisterForm, setShowRegisterForm] = useState(false);
+
+      const registerClicked = (e) => {
+        e.preventDefault();
+        setShowRegisterForm(true);
+      };
+
+      const closeRegisterForm = () => {
+        setShowRegisterForm(false);
+      };
+
+      const handleRegisterSubmit = (e) => {
+          e.preventDefault();
+          // Add your registration logic here
+          console.log('Username:', username);
+          console.log('Password:', password);
+          // Close the form after handling registration
+          closeRegisterForm();
+        };
       
       const loginClicked = () => {
         //('http://198.162.1.4/login', {
@@ -145,6 +164,27 @@
             <a href="#">Support</a>
             <a href="#">Contact</a>
           </nav>
+          {showRegisterForm && (
+                  <div className="overlay">
+                    <div className="register-form">
+                      <span className="close-btn" onClick={closeRegisterForm}>
+                        &times;
+                      </span>
+                      <h2>Register</h2>
+                      <form onSubmit={handleRegisterSubmit}>
+                        <label>
+                          Username:
+                          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        </label>
+                        <label>
+                          Password:
+                          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        </label>
+                        <button type="submit">Register</button>
+                      </form>
+                    </div>
+                  </div>
+                )}
         </div>
       );
     }
