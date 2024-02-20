@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    /* Add some basic styling for the header and menu */
+    header {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #333; 
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+
+    .hero {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .center-hcomponent {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .f-center-component {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left-component {
+      flex: 1;
+      width: 10%;
+    }
+
+    .center-component {
+      flex: 5;
+      width: 90%;
+      text-align: center;
+    }
+
+    .submenu-container {
+      position: relative;
+      display: inline-block;
+      top: -.1%;
+      transform: translateY(.1%);
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 7px);
+      left: 0;
+      display: none;
+      background-color: #555;
+      padding: 10px;
+      list-style-type: none;
+      margin: 0;
+      width: 100px;
+    }
+
+    .submenu-container:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      margin: 5px 0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Header() {
+      const [username, setUsername] = useState('');
+      const [password, setPassword] = useState('');
+      
+      const loginClicked = () => {
+        //('http://198.162.1.4/login', {
+
+        axios.post('https://67b7-106-222-203-115.ngrok-free.app/login', {         
+          username: 'a',
+          password: 'b'
+        })
+        .then(response => {
+          // Handle successful authentication
+          console.log('Authentication successful:', response.data);
+        })
+        .catch(error => {
+          // Handle authentication error
+          console.error('Authentication error:', error.message);
+        });
+      };
+      
+      return (
+        <div>
+          <header>
+            <h1>Library Management System</h1>
+          </header>
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Books</a>
+            <a href="#">Images</a>
+            <a href="#">Videos</a>
+            <a href="#">Search</a>
+            <a href="#">Programs</a>
+            <a href="#">Classes</a>
+            <span className="submenu-container">
+              <a href="#" className="menu-item">My Account</a>
+              <ul className="submenu">
+                <li onClick={loginClicked}>Login</li>
+                {/* Add more items as needed */}
+              </ul>
+            </span>
+            <a href="#">Services</a>
+            <a href="#">Support</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+      );
+    }
+
+    function HeroSection() {
+      return (
+        <section className="hero">
+          <div align="center"><h2>Welcome to our Library</h2></div>
+        </section>
+      );
+    }
+
+    function CenterComponent() {
+      return (
+        <div>
+          <div>
+            <HeroSection />
+          </div>
+          <div>
+            <h1>Hello World</h1>
+          </div>
+        </div>
+      );
+    }
+
+    function LeftComponent() {
+      // You can customize the list of items as needed
+      const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+
+      return (
+        <div>
+          <ul style={{ listStyleType: 'none' }}>
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    function FCenterComponent() {
+      return (
+        <div className="f-center-component">
+          <div className="left-component">
+            <LeftComponent />
+          </div>
+          <div className="center-component">
+            <CenterComponent />
+          </div>
+        </div>
+      );
+    }
+
+    function LandingPage() {
+      return (
+        <div>
+          <Header />
+          <FCenterComponent />
+        </div>
+      );
+    }
+
+    ReactDOM.render(<LandingPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>
