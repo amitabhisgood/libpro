@@ -91,8 +91,10 @@
   <div id="root"></div>
   <script type="text/babel">
     function Header() {
-      const loginClicked => (){
-        axios.post('https://b2d9-2401-4900-1f26-1-2089-1afa-735-f1d2.ngrok-free.app/login ', {
+      const [username, setUsername] = useState('');
+      const [password, setPassword] = useState('');
+      const loginClicked = () => {
+        axios.post('https://b2d9-2401-4900-1f26-1-2089-1afa-735-f1d2.ngrok-free.app/login', {
           username: username,
           password: password
         })
