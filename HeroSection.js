@@ -1,5 +1,9 @@
 function HeroSection() {
-  // ... (Same as your existing HeroSection component)
+  return (
+    <section className="hero">
+      <div align="center"><h2>Welcome to our Library</h2></div>
+    </section>
+  );
 }
 
 export default HeroSection;
