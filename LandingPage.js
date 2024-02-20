@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from './Header';
-import FCenterComponent from './FCenterComponent';
+// import Header from './Header';
+// import FCenterComponent from './FCenterComponent';
 
 function LandingPage() {
+/*  
   return (
     <div>
       <Header />
@@ -10,5 +11,12 @@ function LandingPage() {
     </div>
   );
 }
-
+*/
+  return (
+    <div>
+      <h2>Hello</h2>
+    </div>
+  );
+}
+  
 export default LandingPage;
