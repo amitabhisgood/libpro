@@ -95,6 +95,7 @@
     function Header() {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
+      
       const loginClicked = () => {
         axios.post('http://198.162.1.4/login', {
           username: 'a',
@@ -127,7 +128,7 @@
             <span className="submenu-container">
               <a href="#" className="menu-item">My Account</a>
               <ul className="submenu">
-                <li onClick={onClicked}>Login</li>
+                <li onClick={loginClicked}>Login</li>
                 {/* Add more items as needed */}
               </ul>
             </span>
