@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/babel-preset-react@6/babel-preset-react.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./components/App.js" type="module"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    function App() {
+      const [username, setUsername] = useState('');
+      const [password, setPassword] = useState('');
+      const [email, setEmail] = useState('');
+
+      const loginClicked = (e) => {
+        e.preventDefault();
+        console.log('u: ' + username);
+        console.log('p: ' + password);
+        console.log('e: ' + email);
+
+        axios.post('https://b9e9-2401-4900-1f26-1-fc2f-9bcc-7f9c-712c.ngrok-free.app/login', {
+            username: username,
+            password: password
+          })
+          .then(response => {
+            // Handle successful authentication
+            console.log('Authentication successful:', response.data);
+          })
+          .catch(error => {
+            // Handle authentication error
+            console.error('Authentication error:', error.message);
+          });
+      }
+
+      const registerClicked = (e) => {
+        e.preventDefault();
+        console.log('u1: ' + username);
+        console.log('p1: ' + password);
+        console.log('e1: ' + email);
+
+        axios.post('https://b9e9-2401-4900-1f26-1-fc2f-9bcc-7f9c-712c.ngrok-free.app/register', {
+            username: username,
+            password: password,
+            email: email
+          })
+          .then(response => {
+            // Handle successful authentication
+            console.log('Register successful:', response.data);
+          })
+          .catch(error => {
+            // Handle authentication error
+            console.error('Register error:', error.message);
+          });
+      }
+
+      const logoutClicked = (e) => {
+        e.preventDefault();
+        console.log('u1: ' + username);
+        console.log('p1: ' + password);
+        console.log('e1: ' + email);
+
+        axios.post('https://b9e9-2401-4900-1f26-1-fc2f-9bcc-7f9c-712c.ngrok-free.app/logout', {
+            username: username,
+            password: password,
+            email: email
+          })
+          .then(response => {
+            // Handle successful authentication
+            console.log('Logout successful:', response.data);
+          })
+          .catch(error => {
+            // Handle authentication error
+            console.error('Logout error:', error.message);
+          });
+      }
+
+      return (
+        <div className="App">
+          <form onSubmit={loginClicked}>
+            <label>
+              Username:
+              <input
+                type="text"
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </label><br />
+            <label>
+              Password:
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label><br />
+            <label>
+              Email:
+              <input
+                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label><br />
+            <button type='submit'>Login</button>
+          </form>
+          <button type='button' onClick={registerClicked}>Register</button><br />
+          <button type='button' onClick={logoutClicked}>Logout</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+
+</html>
